@@ -1,6 +1,5 @@
 import { config } from "dotenv";
 import { DataSource } from "typeorm";
-//import { User } from "../models/user";
 
 config();
 
@@ -11,8 +10,10 @@ const dataSource = new DataSource({
   username: process.env.PGSQL_USER,
   password: process.env.PGSQL_PASSWORD,
   database: process.env.PGSQL_DB,
+  logging: true,
   entities: ["./src/models/**.ts"],
-  migrations: ["./src/migrations/**.ts"]
+  migrations: ["./src/migrations/**.ts"],
+  migrationsRun: true
 });
 
 dataSource
