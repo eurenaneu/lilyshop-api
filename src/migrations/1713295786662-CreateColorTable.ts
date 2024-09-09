@@ -1,45 +1,32 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
-import dataSource from "../database/datasource";
-import { Color } from "../models/color";
-import { ColorName } from "../enum/color.enum";
 
 export class CreateColorTable1713295786662 implements MigrationInterface {
+    name = 'CreateColorTable1713295786662'
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(
             new Table({
-                name: "Colors",
+                name: "color",
                 columns: [
                     {
-                        name: "id",
-                        type: "serial",
-                        isPrimary: true
+                        name: "color_id",
+                        type: "integer",
+                        isPrimary: true,
+                        isGenerated: true,
+                        generationStrategy: "increment"
                     },
                     {
                         name: "color",
-                        type: "varchar"
+                        type: "varchar",
+                        length: "20"
                     }
                 ]
             }), true
-        );
-
-        const queryBuilder = await dataSource.createQueryBuilder();
-        
-        queryBuilder.insert().into(Color)
-                    .values([
-                        { colorName: ColorName.AMARELO },
-                        { colorName: ColorName.AZUL },
-                        { colorName: ColorName.BRANCO },
-                        { colorName: ColorName.LARANJA },
-                        { colorName: ColorName.ROSA },
-                        { colorName: ColorName.ROXO },
-                        { colorName: ColorName.COLORIDA }
-                    ]);
-        
+        );        
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("Colors", true);
+        await queryRunner.dropTable("color", true);
     }
 
 }
