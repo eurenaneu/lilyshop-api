@@ -1,15 +1,19 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Address } from "./address";
 
-@Entity("users")
+@Entity()
 export class User {
-  @PrimaryGeneratedColumn("uuid")
-  id?: string;
+  @PrimaryGeneratedColumn("uuid", { name: "user_id" })
+  id: string;
 
-  @Column({name: "first_name"})
+  @Column({ name: "first_name" })
   firstName: string;
 
-  @Column({name: "last_name"})
+  @Column({ name: "last_name" })
   lastName: string;
+
+  @Column()
+  cpf: string;
 
   @Column()
   email: string;
@@ -17,18 +21,9 @@ export class User {
   @Column()
   password: string;
 
-  @CreateDateColumn({name: "created_at"})
-  createdAt?: Date;
+  @OneToMany(() => Address, (address) => address.user)
+  addresses: Address[]
 
-  constructor(
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string
-  ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.password = password;
-  }
+  @CreateDateColumn({ name: "created_at", default: () => "CURRENT_TIMESTAMP" })
+  createdAt: Date;
 }
