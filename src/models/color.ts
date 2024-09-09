@@ -1,13 +1,10 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
+@Entity()
 export class Color {
-    @PrimaryGeneratedColumn("increment")
-    id?: number;
+    @PrimaryGeneratedColumn("increment", { name: "color_id" })
+    id: number;
 
-    @Column("color")
-    colorName: string;
-
-    constructor(colorName: string) {
-        this.colorName = colorName;
-    }
+    @Column()
+    color: string;
 }
