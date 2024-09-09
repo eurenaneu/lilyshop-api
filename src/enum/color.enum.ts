@@ -1,5 +1,6 @@
-export enum ColorName {
+export enum ColorEnum {
     BRANCO = "Branco",
+    PRETO = "Preto",
     AMARELO = "Amarelo",
     VERMELHO = "Vermelho",
     AZUL = "Azul",
