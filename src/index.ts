@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import express from "express";
-import router from "./routes/routes"
+import router from "./routes/router"
 import { config } from "dotenv";
 
 async function main() {
@@ -11,7 +11,7 @@ async function main() {
   const port = process.env.PORT || 3000;
 
   app.use(express.json());
-  app.use(router);
+  app.use("/api/v1", router);
 
   app.listen(port, () => console.log("SERVIDOR: Conectado!\nPORTA:", port));
 }
