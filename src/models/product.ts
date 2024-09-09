@@ -1,30 +1,30 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Check, Column, CreateDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { Color } from "./color";
+import { Category } from "./category";
 
-@Entity("products")
+@Entity()
+@Check("unit_price >= 0")
 export class Product {
-  @PrimaryGeneratedColumn("uuid")
-  id?: string;
+  @PrimaryGeneratedColumn("uuid", { name: "product_id" })
+  id: string;
 
   @Column()
   name: string;
 
-  @Column()
+  @Column({ type: "text" })
   description: string;
 
-  @JoinColumn()
+  @Column({ name: "unit_price" })
+  unitPrice: number;
+  
+  @ManyToOne(() => Color)
+  @JoinColumn({ name: "color_id" })
   color: Color;
 
-  @Column()
-  price: number;
-
+  @ManyToMany(() => Category)
+  @JoinTable()
+  categories: Category[];
+  
   @CreateDateColumn({ name: "created_at" })
-  createdAt?: Date;
-
-  constructor(name: string, description: string, color: Color, price: number) {
-    this.name = name;
-    this.color = color;
-    this.description = description;
-    this.price = price;
-  }
+  createdAt: Date;
 }
