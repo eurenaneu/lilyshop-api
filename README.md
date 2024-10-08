@@ -12,7 +12,7 @@
 LilyShop API is a RESTful API developed and designed for a flowershop e-commerce. This API was created to be implemented in a front-end project developed with Vue. Since this project does not have a specific domain to cover, it can be used to create an API for any type of e-commerce.
 
 ### But why a flowershop?
-I just chose the "flowershop" theme because I was inspired by a flowershop next to my house. 
+I chose the "flowershop" theme because I was inspired by a flowershop next to my house. The name "LilyShop" came about because of the name of my favorite flower, lily-of-the-valley
 
 ## Used Technologies:
 
@@ -37,7 +37,7 @@ I just chose the "flowershop" theme because I was inspired by a flowershop next 
 <br>
 <hr>
 
-<h1 name="portuguese">Food API</h1>
+<h1 name="portuguese">LilyShop API</h1>
 
 [You can also read it in English! :)](#english)
 > API REST flexível feita para LilyShop, um projeto de floricultura, usando Express com TypeScript.
@@ -50,7 +50,7 @@ I just chose the "flowershop" theme because I was inspired by a flowershop next 
 LilyShop API é uma API RESTful desenvolvida e projetada para a loja online de uma floricultura. Essa API foi criada para ser implementada em um projeto front-end desenvolvido usando Vue. Como esse projeto não cobre um domínio específico, pode ser utilizado para criar uma API para qualquer tipo de loja online.
 
 ### Mas por quê uma floricultura? E por quê "LilyShop"?
-Eu escolhi o tema "floricultura" porquê fui inspirado por uma floricultura localizada próxima à minha casa. O nome "LilyShop" surgiu por causa do nome da minha flor favorita, lírio-do-vale.
+Escolhi adotar o tema "floricultura" porquê fui inspirado por uma floricultura localizada próxima à minha casa. O nome "LilyShop" surgiu por causa do nome da minha flor favorita, lírio-do-vale.
 
 ## Tecnologias utilizadas
 
